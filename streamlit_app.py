@@ -3,13 +3,13 @@ import streamlit as st
 # Page Config for a cleaner look
 st.set_page_config(page_title="The Baseline Protocol", page_icon="⚖️")
 
-# Custom CSS for a more "inviting" feel
+# Corrected CSS logic
 st.markdown("""
     <style>
-    .main { background-color: #fdfcfb; }
+    .stApp { background-color: #fdfcfb; }
     h1 { color: #2c3e50; font-family: 'Helvetica Neue', sans-serif; }
     </style>
-    """, unsafe_input=True)
+    """, unsafe_allow_html=True)
 
 st.title("The Baseline Protocol ⚖️")
 st.write("Welcome. This is a space for genuine connection and shared values. Let's see if our baselines align.")
