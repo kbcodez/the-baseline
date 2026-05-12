@@ -1,50 +1,46 @@
 import streamlit as st
 
-# Page Config for a cleaner look
+# Page Config
 st.set_page_config(page_title="The Baseline Protocol", page_icon="⚖️")
 
-# Corrected CSS logic
-st.markdown("""
-    <style>
-    .stApp { background-color: #fdfcfb; }
-    h1 { color: #2c3e50; font-family: 'Helvetica Neue', sans-serif; }
-    </style>
-    """, unsafe_allow_html=True)
-
+# Header section
 st.title("The Baseline Protocol ⚖️")
 st.write("Welcome. This is a space for genuine connection and shared values. Let's see if our baselines align.")
 
-with st.container():
-    st.subheader("Discipline & Lifestyle")
-    gym = st.text_area("Tell me about your relationship with physical grit. How do you challenge yourself physically?")
-    cooking = st.select_slider(
-        "How often do you cook from scratch?",
-        options=["Rarely/Never", "On weekends", "Most nights", "It's my therapy"]
-    )
+st.divider()
+
+# Section 1: Lifestyle
+st.header("Discipline & Lifestyle")
+gym = st.text_area("How do you challenge yourself physically? (Weight training, running, etc.)")
+cooking = st.select_slider(
+    "How often do you cook from scratch?",
+    options=["Rarely/Never", "On weekends", "Most nights", "Every day"]
+)
 
 st.divider()
 
-with st.container():
-    st.subheader("Strategy & Mindset")
-    st.write("In high-pressure situations, how do you make decisions?")
-    logic = st.radio(
-        "Choose your primary approach:",
-        ["I trust my gut and read the room.", 
-         "I look at the data and logic first.", 
-         "A calculated balance of both."]
-    )
-    strategy_detail = st.text_area("Why does that approach work for you?")
+# Section 2: Mindset
+st.header("Strategy & Mindset")
+st.write("In high-pressure situations, how do you make decisions?")
+logic = st.radio(
+    "Primary approach:",
+    ["I trust my gut and read the room.", 
+     "I look at the data and logic first.", 
+     "A calculated balance of both."]
+)
+strategy_detail = st.text_area("Why does that approach work for you?")
 
 st.divider()
 
-with st.container():
-    st.subheader("The Authenticity Check")
-    humility = st.text_area("What is something you’ve failed at recently that taught you something valuable?")
+# Section 3: Authenticity
+st.header("Authenticity Audit")
+humility = st.text_area("What is something you’ve failed at recently that taught you something valuable?")
 
+# Submission
 if st.button("Submit for Review"):
     if not gym or not strategy_detail or not humility:
         st.warning("Please fill out all fields—depth matters.")
     else:
         st.balloons()
-        st.success("Thank you for your honesty. Your responses have been sent for assessment.")
+        st.success("Responses submitted. Thank you for your honesty.")
         
